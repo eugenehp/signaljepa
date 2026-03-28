@@ -1,6 +1,6 @@
 use burn::backend::NdArray as B;
 use burn::prelude::*;
-use signal_jepa_rs::model::signal_jepa::{SignalJEPAPreLocal, DEFAULT_CONV_SPEC};
+use signaljepa_rs::model::signal_jepa::{SignalJEPAPreLocal, DEFAULT_CONV_SPEC};
 
 #[test]
 fn test_forward_basic() {

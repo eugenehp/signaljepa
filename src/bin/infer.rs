@@ -8,8 +8,8 @@ use backend::{B, device};
 
 fn main() -> anyhow::Result<()> {
     let dev = device();
-    let model = signal_jepa_rs::model::signal_jepa::SignalJEPAPreLocal::<B>::new(
-        4, 8, 640, 4, &signal_jepa_rs::model::signal_jepa::DEFAULT_CONV_SPEC, &dev,
+    let model = signaljepa_rs::model::signal_jepa::SignalJEPAPreLocal::<B>::new(
+        4, 8, 640, 4, &signaljepa_rs::model::signal_jepa::DEFAULT_CONV_SPEC, &dev,
     );
     let x = Tensor::<B, 3>::ones([1, 8, 640], &dev).mul_scalar(0.1f32);
     let t0 = Instant::now();

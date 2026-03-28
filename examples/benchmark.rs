@@ -14,8 +14,8 @@ fn main() {
     let nc: usize = args[1].parse().unwrap(); let nt: usize = args[2].parse().unwrap();
     let warmup: usize = args[3].parse().unwrap(); let repeats: usize = args[4].parse().unwrap();
     let dev = device();
-    let model = signal_jepa_rs::model::signal_jepa::SignalJEPAPreLocal::<B>::new(
-        4, nc, nt, 4, &signal_jepa_rs::model::signal_jepa::DEFAULT_CONV_SPEC, &dev,
+    let model = signaljepa_rs::model::signal_jepa::SignalJEPAPreLocal::<B>::new(
+        4, nc, nt, 4, &signaljepa_rs::model::signal_jepa::DEFAULT_CONV_SPEC, &dev,
     );
     let x = Tensor::<B, 3>::ones([1, nc, nt], &dev).mul_scalar(0.1f32);
     for _ in 0..warmup { let _ = model.forward(x.clone()); }

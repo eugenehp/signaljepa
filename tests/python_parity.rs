@@ -1,7 +1,7 @@
 use burn::backend::NdArray as B;
 use burn::prelude::*;
 use std::collections::HashMap;
-use signal_jepa_rs::model::signal_jepa::{SignalJEPAPreLocal, DEFAULT_CONV_SPEC};
+use signaljepa_rs::model::signal_jepa::{SignalJEPAPreLocal, DEFAULT_CONV_SPEC};
 
 fn load_data() -> Option<HashMap<String, (Vec<f32>, Vec<usize>)>> {
     let path = "/tmp/sjepa_parity.safetensors";
