@@ -1,5 +1,5 @@
 [package]
-name = "signaljepa-rs"
+name = "signaljepa"
 version = "0.0.1"
 edition = "2021"
 description = "SignalJEPA EEG Foundation Model — inference in Rust with Burn ML"
@@ -7,14 +7,14 @@ keywords      = ["eeg", "foundational", "BCI", "GPU", "CPU"]
 categories    = ["science", "mathematics"]
 authors       = ["Eugene Hauptmann"]
 license       = "Apache-2.0"
-homepage      = "https://github.com/eugenehp/signaljepa-rs"
-repository    = "https://github.com/eugenehp/signaljepa-rs"
-documentation = "https://docs.rs/signaljepa-rs"
+homepage      = "https://github.com/eugenehp/signaljepa"
+repository    = "https://github.com/eugenehp/signaljepa"
+documentation = "https://docs.rs/signaljepa"
 readme        = "README.md"
 exclude = ["data/", "figures/", "tests/vectors/"]
 
 [lib]
-name = "signaljepa_rs"
+name = "signaljepa"
 path = "src/lib.rs"
 
 [[bin]]
