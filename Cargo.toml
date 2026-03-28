@@ -1,0 +1,50 @@
+[package]
+name = "signal-jepa-rs"
+version = "0.0.1"
+edition = "2021"
+description = "SignalJEPA EEG Foundation Model — inference in Rust with Burn ML"
+keywords      = ["eeg", "foundational", "BCI", "GPU", "CPU"]
+categories    = ["science", "mathematics"]
+authors       = ["Eugene Hauptmann"]
+license       = "Apache-2.0"
+homepage      = "https://github.com/eugenehp/signal-jepa-rs"
+repository    = "https://github.com/eugenehp/signal-jepa-rs"
+documentation = "https://docs.rs/signal-jepa-rs"
+readme        = "README.md"
+exclude = ["data/", "figures/", "tests/vectors/"]
+
+[lib]
+name = "signal_jepa_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "infer"
+path = "src/bin/infer.rs"
+
+[[example]]
+name = "benchmark"
+path = "examples/benchmark.rs"
+
+[features]
+default = ["ndarray"]
+ndarray         = ["dep:burn-ndarray", "burn/ndarray"]
+blas-accelerate = ["burn-ndarray?/blas-accelerate"]
+openblas-system = ["burn-ndarray?/blas-openblas-system"]
+wgpu            = ["burn/wgpu"]
+metal           = ["wgpu", "burn-wgpu/metal"]
+vulkan          = ["wgpu", "burn-wgpu/vulkan"]
+
+[dependencies]
+burn = { version = "0.20.1", default-features = false, features = ["std", "simd"] }
+burn-ndarray = { version = "0.20.1", default-features = false, features = ["std", "simd", "multi-threads"], optional = true }
+burn-wgpu = { version = "0.20.1", default-features = true, optional = true }
+safetensors = "0.7"
+half = { version = "2", features = ["bytemuck"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1.0.102"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
